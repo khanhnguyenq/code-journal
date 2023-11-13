@@ -5,3 +5,25 @@
 .background-purple {
   background-color: #4c2676;
 }
+
+.padding-bottom-10 {
+  padding-bottom: 10px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.margin-bottom-25 {
+  margin-bottom: 25px;
+}
+
+.flex-end {
+  flex-direction: row-reverse;
+}
+
+.button-save {
+  text-transform: uppercase;
+  border-radius: 5px;
+  height: 40px;
+}
