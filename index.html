@@ -15,12 +15,59 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body>
-    <header>
-      <div class="container"></div>
+    <header class="background-purple">
+      <div class="container">
+        <div class="row column-full">
+          <h1 class="white-text">Code Journal</h1>
+        </div>
+      </div>
     </header>
     <main class="container">
-      <div data-view="entry-form"></div>
+      <div data-view="entry-form">
+        <div class="row">
+          <div class="column-full">
+            <h1>New Entry</h1>
+          </div>
+        </div>
+        <form class="entry-form">
+          <div class="row">
+            <div class="column-half">
+              <img
+                class="image"
+                src="images/placeholder-image-square.jpg"
+                alt="placeholder-image" />
+            </div>
+            <div class="column-half">
+              <label for="title" class="margin-bottom-10">Title</label>
+              <input
+                class="height-30 margin-bottom-10"
+                required
+                type="text"
+                id="title" />
+              <label for="url" class="margin-bottom-10">Photo URL</label>
+              <input class="height-30" required type="text" id="url" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <label class="margin-top-15" for="notes">Notes </label>
+              <textarea
+                required
+                id="notes"
+                cols="30"
+                rows="10"
+                class="row column-full margin-bottom-10"></textarea>
+            </div>
+          </div>
+          <div class="row column-full flex-end">
+            <button class="white-text background-purple button-save">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
       <div data-view="entries" class="hidden"></div>
     </main>
     <script src="js/data.js"></script>
