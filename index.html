@@ -31,25 +31,27 @@
         <h1 class="row column-full">New Entry</h1>
         <form class="row">
           <img
-            class="row column-full column-half"
+            class="image row column-full column-half"
             src="images/placeholder-image-square.jpg"
             alt="placeholder-image" />
           <div class="column-full column-half">
-            <label for="title" class="row padding-bottom-10">Title </label>
+            <label for="title" class="row padding-bottom-10 bold">Title </label>
             <input
               required
               type="text"
               id="title"
               class="row column-full margin-bottom-10 height-30" />
-            <label for="url" class="row padding-bottom-10">Photo URL </label>
+            <label for="url" class="row padding-bottom-10 bold"
+              >Photo URL
+            </label>
             <input
               required
               type="text"
               id="url"
               class="column-full margin-bottom-25 height-30" />
           </div>
-          <div class="row column-full">
-            <label for="notes" class="row column-full padding-bottom-10"
+          <div class="row column-full margin-top-10">
+            <label for="notes" class="row column-full padding-bottom-10 bold"
               >Notes
             </label>
             <textarea
@@ -60,7 +62,7 @@
               class="row column-full margin-bottom-10"></textarea>
           </div>
           <div class="row column-full flex-end">
-            <button class="white-text background-purple button-save">
+            <button class="save white-text background-purple button-save">
               Save
             </button>
           </div>
