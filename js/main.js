@@ -22,30 +22,38 @@ $entryForm.addEventListener('submit', function (event) {
   $entryForm.reset();
 });
 
-// function renderEntry (entry) {
-//   const $newLi = document.createElement('li');
-//   const $rowDiv = document.createElement('div');
-//   const $columnHalfDiv = document.createElement('div');
-//   const $imgElement = document.createElement('img');
-//   const $secondColumnHalf = document.createElement('div');
-//   const $titleElement = document.createElement('h3');
-//   const $noteElement = document.createElement('p');
+function renderEntry(entry) {
+  const $newLi = document.createElement('li');
+  const $rowDiv = document.createElement('div');
+  const $columnHalfDiv = document.createElement('div');
+  const $imgElement = document.createElement('img');
+  const $secondColumnHalf = document.createElement('div');
+  const $titleElement = document.createElement('h3');
+  const $noteElement = document.createElement('p');
 
-//   $rowDiv.setAttribute('class', 'row');
-//   $columnHalfDiv.setAttribute('class', 'column-half');
-//   $imgElement.setAttribute('class', 'image');
-//   $imgElement.setAttribute('src', data.entries.url);
-//   $secondColumnHalf.setAttribute('class', 'column-half');
-//   $titleElement.textContent = data.entries.title;
-//   $noteElement.textContent = data.entries.notes;
+  $rowDiv.setAttribute('class', 'row');
+  $columnHalfDiv.setAttribute('class', 'column-half');
+  $imgElement.setAttribute('class', 'image');
+  $imgElement.setAttribute('src', entry.url);
+  $secondColumnHalf.setAttribute('class', 'column-half');
+  $titleElement.textContent = entry.title;
+  $noteElement.textContent = entry.notes;
 
-//   $newLi.appendChild($rowDiv);
-//   $rowDiv.appendChild($columnHalfDiv);
-//   $columnHalfDiv.appendChild($imgElement);
+  $newLi.appendChild($rowDiv);
+  $rowDiv.appendChild($columnHalfDiv);
+  $columnHalfDiv.appendChild($imgElement);
 
-//   $rowDiv.appendChild($secondColumnHalf);
-//   $secondColumnHalf.appendChild($titleElement);
-//   $secondColumnHalf.appendChild($noteElement);
+  $rowDiv.appendChild($secondColumnHalf);
+  $secondColumnHalf.appendChild($titleElement);
+  $secondColumnHalf.appendChild($noteElement);
 
-//   return $newLi;
-// }
+  return $newLi;
+}
+
+const $unorderedList = document.querySelector('.no-bullets');
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  for (let i = 0; i < data.entries.length; i++) {
+    $unorderedList.appendChild(renderEntry(data.entries[i]));
+  }
+});
