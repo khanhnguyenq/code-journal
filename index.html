@@ -19,62 +19,54 @@
   <body>
     <header class="background-purple">
       <div class="container">
-        <!-- beginning of header -->
         <div class="row column-full">
           <h1 class="white-text">Code Journal</h1>
         </div>
-        <!-- ending of header -->
       </div>
     </header>
     <main class="container">
       <div data-view="entry-form">
-        <h1 class="row column-full">New Entry</h1>
-        <!-- begining of form -->
-        <form class="row entry-form">
-          <!-- beginning of image preview -->
-          <img
-            class="image row column-full column-half"
-            src="images/placeholder-image-square.jpg"
-            alt="placeholder-image" />
-          <!-- ending of image preview -->
-          <!-- container for title and url sections -->
-          <div class="column-full column-half">
-            <label for="title" class="row padding-bottom-10">Title </label>
-            <input
-              required
-              type="text"
-              id="title"
-              class="row column-full margin-bottom-10 height-30" />
-            <label for="url" class="row padding-bottom-10">Photo URL </label>
-            <input
-              required
-              type="text"
-              id="url"
-              class="column-full margin-bottom-25 height-30" />
+        <div class="row">
+          <div class="column-full">
+            <h1>New Entry</h1>
           </div>
-          <!-- ending container for title and url sections -->
-          <!-- container for note section -->
-          <div class="row column-full margin-top-10">
-            <label for="notes" class="row column-full padding-bottom-10"
-              >Notes
-            </label>
-            <textarea
-              required
-              id="notes"
-              cols="30"
-              rows="10"
-              class="row column-full margin-bottom-10"></textarea>
+        </div>
+        <form class="entry-form">
+          <div class="row">
+            <div class="column-half">
+              <img
+                class="image"
+                src="images/placeholder-image-square.jpg"
+                alt="placeholder-image" />
+            </div>
+            <div class="column-half">
+              <label for="title" class="margin-bottom-10">Title</label>
+              <input
+                class="height-30 margin-bottom-10"
+                required
+                type="text"
+                id="title" />
+              <label for="url" class="margin-bottom-10">Photo URL</label>
+              <input class="height-30" required type="text" id="url" />
+            </div>
           </div>
-          <!-- ending container for note section -->
-          <!-- button container -->
+          <div class="row">
+            <div class="column-full">
+              <label class="margin-top-15" for="notes">Notes </label>
+              <textarea
+                required
+                id="notes"
+                cols="30"
+                rows="10"
+                class="row column-full margin-bottom-10"></textarea>
+            </div>
+          </div>
           <div class="row column-full flex-end">
             <button class="white-text background-purple button-save">
               Save
             </button>
           </div>
-          <!-- ending button container -->
         </form>
-        <!-- ending of form -->
       </div>
       <div data-view="entries" class="hidden"></div>
     </main>
