@@ -14,6 +14,6 @@ window.addEventListener('beforeunload', function (event) {
   localStorage.setItem('data-object', dataJSON);
 });
 
-if (localStorage.getItem('data-object') !== null) {
+if (previousDataJSON !== null) {
   data = JSON.parse(previousDataJSON);
 }
