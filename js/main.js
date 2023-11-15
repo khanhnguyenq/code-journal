@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
   for (let i = 0; i < data.entries.length; i++) {
     $unorderedList.appendChild(renderEntry(data.entries[i]));
   }
+  viewSwap(data.view);
+  toggleNoEntries();
 });
 
 function toggleNoEntries() {
@@ -75,7 +77,7 @@ function toggleNoEntries() {
 function viewSwap(name) {
   const $entriesView = document.querySelector('[data-view=entries]');
   const $entryFormView = document.querySelector('[data-view=entry-form]');
-  if (name !== 'entries') {
+  if (name !== 'entries' && name !== 'entry-form') {
     name = name.target.getAttribute('id');
   }
   if (name === 'entries') {
