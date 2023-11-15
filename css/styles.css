@@ -48,11 +48,8 @@ ul.no-bullets {
   text-transform: capitalize;
 }
 
-.padding-left-10 {
+.padding {
   padding-left: 10px;
-}
-
-.padding-top-10 {
   padding-top: 10px;
 }
 
