@@ -58,17 +58,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
-// function viewSwap(name) {
-//   const $entriesView = document.querySelector('[data-view=entries]');
-//   const $entryFormView = document.querySelector('[data-view=entry-form]');
-//   if (name === 'entries') {
-//     $entryFormView.className = 'hidden';
-//     $entriesView.classList.remove('hidden');
-//     data.view = name;
-//   } else {
-//     $entriesView.className = 'hidden'
-//     $entryFormView.classList.remove('hidden');
-//     data.view = name;
-//   }
-//   console.log('data view:', data.view);
-// };
+function viewSwap(name) {
+  name = $entriesSwitch.textContent;
+  const $entriesView = document.querySelector('[data-view=entries]');
+  const $entryFormView = document.querySelector('[data-view=entry-form]');
+  if (name === 'entries') {
+    $entryFormView.className = 'hidden';
+    $entriesView.classList.remove('hidden');
+    data.view = name;
+  } else if (name === 'entry-form') {
+    $entriesView.className = 'hidden';
+    $entryFormView.classList.remove('hidden');
+    data.view = name;
+  }
+}
+
+const $entriesSwitch = document.querySelector('.switch');
+
+$entriesSwitch.addEventListener('click', viewSwap);

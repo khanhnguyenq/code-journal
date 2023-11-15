@@ -43,3 +43,19 @@ ul.no-bullets {
   padding: 0;
   margin: 0;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.padding-left-10 {
+  padding-left: 10px;
+}
+
+.padding-top-10 {
+  padding-top: 10px;
+}
+
+.switch:hover {
+  cursor: pointer;
+}
