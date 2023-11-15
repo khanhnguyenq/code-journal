@@ -58,17 +58,26 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
+// function toggleNoEntries() {
+//   const $noEntryText = document.querySelector('.no-entry');
+//   if (data.entries.length !== 0) {
+//     $noEntryText.className = 'no-entry hidden'
+//   } else {
+//     $noEntryText.className = 'no-entry';
+//   }
+// }
+
 function viewSwap(name) {
   const $entriesView = document.querySelector('[data-view=entries]');
   const $entryFormView = document.querySelector('[data-view=entry-form]');
   name = name.target.getAttribute('id');
   if (name === 'entries') {
-    $entryFormView.className = 'row hidden';
+    $entryFormView.className = 'hidden';
     $entriesView.className = 'row';
     data.view = name;
   } else if (name === 'entry-form') {
     $entriesView.className = 'row hidden';
-    $entryFormView.className = 'row';
+    $entryFormView.className = '';
     data.view = name;
   }
 }
