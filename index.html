@@ -16,12 +16,14 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
 
-  <body>
+  <body class="main">
     <header class="background-purple">
       <div class="container">
         <div class="row column-full">
           <h1 class="white-text">Code Journal</h1>
-          <h3 class="switch white-text capitalize padding">entries</h3>
+          <h3 id="entries" class="switch white-text capitalize padding">
+            entries
+          </h3>
         </div>
       </div>
     </header>
@@ -69,9 +71,17 @@
           </div>
         </form>
       </div>
-      <div data-view="entries" class="hidden">
+      <div data-view="entries" class="row hidden">
+        <div class="column-full space-between row">
+          <h1 class="no-entry inline-block">Entries</h1>
+          <button
+            id="entry-form"
+            class="margin-20 button-save background-purple white-text bold">
+            new
+          </button>
+        </div>
         <div class="column-full">
-          <h1 class="no-entry">No entry has been recorded.</h1>
+          <p class="no-entry">No entry has been recorded.</p>
         </div>
         <ul class="no-bullets"></ul>
       </div>

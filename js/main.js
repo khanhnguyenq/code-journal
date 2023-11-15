@@ -59,20 +59,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 
 function viewSwap(name) {
-  name = $entriesSwitch.textContent;
   const $entriesView = document.querySelector('[data-view=entries]');
   const $entryFormView = document.querySelector('[data-view=entry-form]');
+  name = name.target.getAttribute('id');
   if (name === 'entries') {
-    $entryFormView.className = 'hidden';
-    $entriesView.classList.remove('hidden');
+    $entryFormView.className = 'row hidden';
+    $entriesView.className = 'row';
     data.view = name;
   } else if (name === 'entry-form') {
-    $entriesView.className = 'hidden';
-    $entryFormView.classList.remove('hidden');
+    $entriesView.className = 'row hidden';
+    $entryFormView.className = 'row';
     data.view = name;
   }
 }
 
-const $entriesSwitch = document.querySelector('.switch');
+const $mainContainer = document.querySelector('.main');
 
-$entriesSwitch.addEventListener('click', viewSwap);
+$mainContainer.addEventListener('click', viewSwap);
