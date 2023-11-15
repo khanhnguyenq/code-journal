@@ -11,7 +11,7 @@
 }
 
 .flex-end {
-  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 .button-save {
@@ -32,10 +32,6 @@ label,
 input {
   display: block;
   width: 100%;
-}
-
-.margin-top-15 {
-  margin-top: 15px;
 }
 
 ul.no-bullets {
