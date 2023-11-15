@@ -7,7 +7,7 @@ $photoUrl.addEventListener('input', function (event) {
   $image.setAttribute('src', event.target.value);
 });
 
-const $entryForm = document.querySelector('.entry-form');
+const $entryForm = document.querySelector('.form');
 
 $entryForm.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -57,3 +57,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $unorderedList.appendChild(renderEntry(data.entries[i]));
   }
 });
+
+// function viewSwap(name) {
+//   const $entriesView = document.querySelector('[data-view=entries]');
+//   const $entryFormView = document.querySelector('[data-view=entry-form]');
+//   if (name === 'entries') {
+//     $entryFormView.className = 'hidden';
+//     $entriesView.classList.remove('hidden');
+//     data.view = name;
+//   } else {
+//     $entriesView.className = 'hidden'
+//     $entryFormView.classList.remove('hidden');
+//     data.view = name;
+//   }
+//   console.log('data view:', data.view);
+// };
