@@ -21,10 +21,10 @@ $entryForm.addEventListener('submit', function (event) {
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   $entryForm.reset();
 
-  const newData = renderEntry(submittedData);
-  $unorderedList.prepend(newData);
-  toggleNoEntries();
+  const $newData = renderEntry(submittedData);
+  $unorderedList.prepend($newData);
   viewSwap('entries');
+  toggleNoEntries();
 });
 
 function renderEntry(entry) {
@@ -40,6 +40,7 @@ function renderEntry(entry) {
   $columnHalfDiv.setAttribute('class', 'column-half');
   $imgElement.setAttribute('class', 'image');
   $imgElement.setAttribute('src', entry.url);
+  $imgElement.setAttribute('alt', entry.notes);
   $secondColumnHalf.setAttribute('class', 'column-half');
   $titleElement.textContent = entry.title;
   $noteElement.textContent = entry.notes;
@@ -65,8 +66,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
   toggleNoEntries();
 });
 
+const $noEntryText = document.querySelector('.no-entry');
+
 function toggleNoEntries() {
-  const $noEntryText = document.querySelector('.no-entry');
   if (data.entries.length !== 0) {
     $noEntryText.className = 'no-entry hidden';
   } else {
@@ -74,12 +76,10 @@ function toggleNoEntries() {
   }
 }
 
+const $entriesView = document.querySelector('[data-view=entries]');
+const $entryFormView = document.querySelector('[data-view=entry-form]');
+
 function viewSwap(name) {
-  const $entriesView = document.querySelector('[data-view=entries]');
-  const $entryFormView = document.querySelector('[data-view=entry-form]');
-  if (name !== 'entries' && name !== 'entry-form') {
-    name = name.target.getAttribute('id');
-  }
   if (name === 'entries') {
     $entryFormView.className = 'hidden';
     $entriesView.className = 'row';
@@ -91,6 +91,12 @@ function viewSwap(name) {
   }
 }
 
-const $mainContainer = document.querySelector('.main');
+const $entriesText = document.querySelector('#entries');
+const $entryFormButton = document.querySelector('#entry-form');
 
-$mainContainer.addEventListener('click', viewSwap);
+$entriesText.addEventListener('click', function () {
+  viewSwap('entries');
+});
+$entryFormButton.addEventListener('click', function () {
+  viewSwap('entry-form');
+});
