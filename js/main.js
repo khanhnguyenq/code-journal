@@ -131,6 +131,8 @@ $entryFormButton.addEventListener('click', function () {
 const $headingTitle = document.querySelector('.heading-title');
 const $deleteButton = document.querySelector('#delete');
 
+let $clickedElement = 0;
+
 $unorderedList.addEventListener('click', function (event) {
   if (event.target.tagName === 'I') {
     viewSwap('entry-form');
@@ -138,6 +140,7 @@ $unorderedList.addEventListener('click', function (event) {
     const $clickedEntryId = parseInt(
       event.target.closest('li').getAttribute('data-entry-id')
     );
+    $clickedElement = $clickedEntryId;
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === $clickedEntryId) {
         data.editing = data.entries[i];
@@ -164,4 +167,24 @@ const $cancel = document.querySelector('.cancel');
 $cancel.addEventListener('click', function () {
   $modal.classList.add('hidden');
   $overlay.classList.add('hidden');
+});
+
+const $confirm = document.querySelector('.confirm');
+
+$confirm.addEventListener('click', function () {
+  const tempArray = [];
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId !== $clickedElement) {
+      tempArray.push(data.entries[i]);
+    }
+  }
+  data.entries = tempArray;
+  const $liToRemove = document.querySelector(
+    `[data-entry-id="${$clickedElement}"]`
+  );
+  $liToRemove.remove();
+  toggleNoEntries();
+  $modal.classList.add('hidden');
+  $overlay.classList.add('hidden');
+  viewSwap('entry');
 });
