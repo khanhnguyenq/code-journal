@@ -11,7 +11,7 @@
 }
 
 .flex-end {
-  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 .button-save {
@@ -34,6 +34,42 @@ input {
   width: 100%;
 }
 
-.margin-top-15 {
-  margin-top: 15px;
+ul.no-bullets {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.padding {
+  padding-left: 10px;
+  padding-top: 30px;
+}
+
+.switch:hover {
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.margin-20 {
+  margin: 20px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+#entries {
+  text-decoration: none;
+  font-size: larger;
 }

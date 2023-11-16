@@ -21,6 +21,9 @@
       <div class="container">
         <div class="row column-full">
           <h1 class="white-text">Code Journal</h1>
+          <a href="#" id="entries" class="switch white-text capitalize padding">
+            entries
+          </a>
         </div>
       </div>
     </header>
@@ -31,7 +34,7 @@
             <h1>New Entry</h1>
           </div>
         </div>
-        <form class="entry-form">
+        <form class="form">
           <div class="row">
             <div class="column-half">
               <img
@@ -68,7 +71,20 @@
           </div>
         </form>
       </div>
-      <div data-view="entries" class="hidden"></div>
+      <div data-view="entries" class="row hidden">
+        <div class="column-full space-between row">
+          <h1 class="inline-block">Entries</h1>
+          <button
+            id="entry-form"
+            class="switch margin-20 button-save background-purple white-text bold">
+            new
+          </button>
+        </div>
+        <div class="column-full">
+          <p class="no-entry">No entry has been recorded.</p>
+        </div>
+        <ul class="no-bullets column-full"></ul>
+      </div>
     </main>
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
