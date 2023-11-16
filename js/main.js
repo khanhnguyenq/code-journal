@@ -10,19 +10,38 @@ $photoUrl.addEventListener('input', function (event) {
 const $entryForm = document.querySelector('.form');
 
 $entryForm.addEventListener('submit', function (event) {
-  event.preventDefault();
-  const submittedData = {};
-  submittedData.title = $entryForm.title.value;
-  submittedData.url = $entryForm.url.value;
-  submittedData.notes = $entryForm.notes.value;
-  submittedData.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(submittedData);
-  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $entryForm.reset();
-
-  const $newData = renderEntry(submittedData);
-  $unorderedList.prepend($newData);
+  if (data.editing === null) {
+    event.preventDefault();
+    const submittedData = {};
+    submittedData.title = $entryForm.title.value;
+    submittedData.url = $entryForm.url.value;
+    submittedData.notes = $entryForm.notes.value;
+    submittedData.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(submittedData);
+    $image.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $entryForm.reset();
+    const $newData = renderEntry(submittedData);
+    $unorderedList.prepend($newData);
+  } else {
+    const edittedDataObj = {};
+    edittedDataObj.entryId = data.editing.entryId;
+    edittedDataObj.title = $entryForm.title.value;
+    edittedDataObj.url = $entryForm.url.value;
+    edittedDataObj.notes = $entryForm.notes.value;
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === edittedDataObj.entryId) {
+        data.entries[i] = edittedDataObj;
+      }
+    }
+    const $edittedDataDOM = renderEntry(edittedDataObj);
+    const $liToReplace = document.querySelector(
+      `[data-entry-id="${data.editing.entryId}"]`
+    );
+    $liToReplace.replaceWith($edittedDataDOM);
+    $headingTitle.textContent = 'New Entry';
+    data.editing = null;
+  }
   viewSwap('entries');
   toggleNoEntries();
 });
