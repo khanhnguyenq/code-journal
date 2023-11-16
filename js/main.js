@@ -10,8 +10,8 @@ $photoUrl.addEventListener('input', function (event) {
 const $entryForm = document.querySelector('.form');
 
 $entryForm.addEventListener('submit', function (event) {
+  event.preventDefault();
   if (data.editing === null) {
-    event.preventDefault();
     const submittedData = {};
     submittedData.title = $entryForm.title.value;
     submittedData.url = $entryForm.url.value;
@@ -52,6 +52,7 @@ function renderEntry(entry) {
   const $columnHalfDiv = document.createElement('div');
   const $imgElement = document.createElement('img');
   const $secondColumnHalf = document.createElement('div');
+  const $titleContainer = document.createElement('div');
   const $titleElement = document.createElement('h3');
   const $pencil = document.createElement('i');
   const $noteElement = document.createElement('p');
@@ -63,18 +64,19 @@ function renderEntry(entry) {
   $imgElement.setAttribute('src', entry.url);
   $imgElement.setAttribute('alt', entry.notes);
   $secondColumnHalf.setAttribute('class', 'column-half');
+  $titleContainer.setAttribute('class', 'row space-between');
   $titleElement.textContent = entry.title;
   $titleElement.setAttribute('class', 'inline-block');
-  $pencil.setAttribute('class', 'fa fa-pencil margin-float');
+  $pencil.setAttribute('class', 'fa fa-pencil margin-top');
   $noteElement.textContent = entry.notes;
 
   $newLi.appendChild($rowDiv);
   $rowDiv.appendChild($columnHalfDiv);
   $columnHalfDiv.appendChild($imgElement);
-
   $rowDiv.appendChild($secondColumnHalf);
-  $secondColumnHalf.appendChild($titleElement);
-  $secondColumnHalf.appendChild($pencil);
+  $secondColumnHalf.appendChild($titleContainer);
+  $titleContainer.appendChild($titleElement);
+  $titleContainer.appendChild($pencil);
   $secondColumnHalf.appendChild($noteElement);
 
   return $newLi;
