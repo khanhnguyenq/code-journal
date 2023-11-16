@@ -158,3 +158,10 @@ $deleteButton.addEventListener('click', function () {
   $modal.classList.remove('hidden');
   $overlay.classList.remove('hidden');
 });
+
+const $cancel = document.querySelector('.cancel');
+
+$cancel.addEventListener('click', function () {
+  $modal.classList.add('hidden');
+  $overlay.classList.add('hidden');
+});
