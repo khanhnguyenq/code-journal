@@ -34,8 +34,10 @@ function renderEntry(entry) {
   const $imgElement = document.createElement('img');
   const $secondColumnHalf = document.createElement('div');
   const $titleElement = document.createElement('h3');
+  const $pencil = document.createElement('i');
   const $noteElement = document.createElement('p');
 
+  $newLi.setAttribute('data-entry-id', entry.entryId);
   $rowDiv.setAttribute('class', 'row');
   $columnHalfDiv.setAttribute('class', 'column-half');
   $imgElement.setAttribute('class', 'image');
@@ -43,7 +45,10 @@ function renderEntry(entry) {
   $imgElement.setAttribute('alt', entry.notes);
   $secondColumnHalf.setAttribute('class', 'column-half');
   $titleElement.textContent = entry.title;
+  $titleElement.setAttribute('class', 'inline-block');
+  $pencil.setAttribute('class', 'fa fa-pencil margin-float');
   $noteElement.textContent = entry.notes;
+  $noteElement.setAttribute('class', 'block');
 
   $newLi.appendChild($rowDiv);
   $rowDiv.appendChild($columnHalfDiv);
@@ -51,6 +56,7 @@ function renderEntry(entry) {
 
   $rowDiv.appendChild($secondColumnHalf);
   $secondColumnHalf.appendChild($titleElement);
+  $secondColumnHalf.appendChild($pencil);
   $secondColumnHalf.appendChild($noteElement);
 
   return $newLi;

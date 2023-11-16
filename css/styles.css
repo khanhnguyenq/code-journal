@@ -29,7 +29,8 @@
 }
 
 label,
-input {
+input,
+.block {
   display: block;
   width: 100%;
 }
@@ -72,4 +73,9 @@ ul.no-bullets {
 #entries {
   text-decoration: none;
   font-size: larger;
+}
+
+.margin-float {
+  margin-top: 1.4em;
+  float: right;
 }
