@@ -67,7 +67,6 @@ function renderEntry(entry) {
   $titleElement.setAttribute('class', 'inline-block');
   $pencil.setAttribute('class', 'fa fa-pencil margin-float');
   $noteElement.textContent = entry.notes;
-  $noteElement.setAttribute('class', 'block');
 
   $newLi.appendChild($rowDiv);
   $rowDiv.appendChild($columnHalfDiv);

@@ -29,8 +29,7 @@
 }
 
 label,
-input,
-.block {
+input {
   display: block;
   width: 100%;
 }
