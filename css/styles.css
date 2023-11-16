@@ -82,6 +82,37 @@ ul.no-bullets {
   text-decoration-line: underline;
   color: #f81011;
   border: none;
-  background-color: #fff;
+  background-color: #ececee;
   font-size: medium;
+}
+
+.modal {
+  text-align: center;
+  height: 10em;
+  width: 20em;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(50, 50, 50, 0.7);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.margin-top-0 {
+  margin-top: 0;
+}
+
+.background-gray {
+  background-color: #ececee;
 }

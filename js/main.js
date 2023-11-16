@@ -150,3 +150,11 @@ $unorderedList.addEventListener('click', function (event) {
     $headingTitle.textContent = 'Edit Entry';
   }
 });
+
+const $modal = document.querySelector('.modal');
+const $overlay = document.querySelector('.overlay');
+
+$deleteButton.addEventListener('click', function () {
+  $modal.classList.remove('hidden');
+  $overlay.classList.remove('hidden');
+});
