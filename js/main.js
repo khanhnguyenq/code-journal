@@ -106,3 +106,24 @@ $entriesText.addEventListener('click', function () {
 $entryFormButton.addEventListener('click', function () {
   viewSwap('entry-form');
 });
+
+const $headingTitle = document.querySelector('.heading-title');
+
+$unorderedList.addEventListener('click', function (event) {
+  if (event.target.tagName === 'I') {
+    viewSwap('entry-form');
+    const $clickedEntryId = parseInt(
+      event.target.closest('li').getAttribute('data-entry-id')
+    );
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === $clickedEntryId) {
+        data.editing = data.entries[i];
+      }
+    }
+    $entryForm.title.value = data.editing.title;
+    $entryForm.url.value = data.editing.url;
+    $entryForm.notes.value = data.editing.notes;
+    $image.setAttribute('src', data.editing.url);
+    $headingTitle.textContent = 'Edit Entry';
+  }
+});
