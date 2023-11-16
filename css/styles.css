@@ -11,7 +11,7 @@
 }
 
 .flex-end {
-  justify-content: flex-end;
+  flex-direction: row-reverse;
 }
 
 .button-save {
@@ -76,4 +76,12 @@ ul.no-bullets {
 
 .margin-top {
   margin-top: 1.4em;
+}
+
+#delete {
+  text-decoration-line: underline;
+  color: #f81011;
+  border: none;
+  background-color: #fff;
+  font-size: medium;
 }

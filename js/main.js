@@ -42,6 +42,7 @@ $entryForm.addEventListener('submit', function (event) {
     $headingTitle.textContent = 'New Entry';
     data.editing = null;
   }
+  $deleteButton.className = 'hidden';
   viewSwap('entries');
   toggleNoEntries();
 });
@@ -128,10 +129,12 @@ $entryFormButton.addEventListener('click', function () {
 });
 
 const $headingTitle = document.querySelector('.heading-title');
+const $deleteButton = document.querySelector('#delete');
 
 $unorderedList.addEventListener('click', function (event) {
   if (event.target.tagName === 'I') {
     viewSwap('entry-form');
+    $deleteButton.classList.remove('hidden');
     const $clickedEntryId = parseInt(
       event.target.closest('li').getAttribute('data-entry-id')
     );
