@@ -172,13 +172,11 @@ $cancel.addEventListener('click', function () {
 const $confirm = document.querySelector('.confirm');
 
 $confirm.addEventListener('click', function () {
-  const tempArray = [];
-  for (let i = 0; i < data.entries.length; i++) {
-    if (data.entries[i].entryId !== $clickedElement) {
-      tempArray.push(data.entries[i]);
-    }
-  }
-  data.entries = tempArray;
+  const indexToRemove = data.entries.findIndex(
+    (index) => index.entryId === $clickedElement
+  );
+  data.entries.splice(indexToRemove, 1);
+
   const $liToRemove = document.querySelector(
     `[data-entry-id="${$clickedElement}"]`
   );
@@ -187,4 +185,5 @@ $confirm.addEventListener('click', function () {
   $modal.classList.add('hidden');
   $overlay.classList.add('hidden');
   viewSwap('entry');
+  $entryForm.reset();
 });
