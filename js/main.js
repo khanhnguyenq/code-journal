@@ -186,4 +186,5 @@ $confirm.addEventListener('click', function () {
   $overlay.classList.add('hidden');
   viewSwap('entry');
   $entryForm.reset();
+  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
 });
