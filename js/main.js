@@ -42,6 +42,7 @@ $entryForm.addEventListener('submit', function (event) {
     $headingTitle.textContent = 'New Entry';
     data.editing = null;
   }
+  $deleteButton.className = 'hidden';
   viewSwap('entries');
   toggleNoEntries();
 });
@@ -128,13 +129,18 @@ $entryFormButton.addEventListener('click', function () {
 });
 
 const $headingTitle = document.querySelector('.heading-title');
+const $deleteButton = document.querySelector('#delete');
+
+let $clickedElement = 0;
 
 $unorderedList.addEventListener('click', function (event) {
   if (event.target.tagName === 'I') {
     viewSwap('entry-form');
+    $deleteButton.classList.remove('hidden');
     const $clickedEntryId = parseInt(
       event.target.closest('li').getAttribute('data-entry-id')
     );
+    $clickedElement = $clickedEntryId;
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === $clickedEntryId) {
         data.editing = data.entries[i];
@@ -146,4 +152,38 @@ $unorderedList.addEventListener('click', function (event) {
     $image.setAttribute('src', data.editing.url);
     $headingTitle.textContent = 'Edit Entry';
   }
+});
+
+const $modal = document.querySelector('.modal');
+const $overlay = document.querySelector('.overlay');
+
+$deleteButton.addEventListener('click', function () {
+  $modal.classList.remove('hidden');
+  $overlay.classList.remove('hidden');
+});
+
+const $cancel = document.querySelector('.cancel');
+
+$cancel.addEventListener('click', function () {
+  $modal.classList.add('hidden');
+  $overlay.classList.add('hidden');
+});
+
+const $confirm = document.querySelector('.confirm');
+
+$confirm.addEventListener('click', function () {
+  const indexToRemove = data.entries.findIndex(
+    (index) => index.entryId === $clickedElement
+  );
+  data.entries.splice(indexToRemove, 1);
+
+  const $liToRemove = document.querySelector(
+    `[data-entry-id="${$clickedElement}"]`
+  );
+  $liToRemove.remove();
+  toggleNoEntries();
+  $modal.classList.add('hidden');
+  $overlay.classList.add('hidden');
+  viewSwap('entry');
+  $entryForm.reset();
 });

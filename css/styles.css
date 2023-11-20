@@ -11,13 +11,14 @@
 }
 
 .flex-end {
-  justify-content: flex-end;
+  flex-direction: row-reverse;
 }
 
 .button-save {
   text-transform: uppercase;
   border-radius: 5px;
   height: 40px;
+  width: 5rem;
 }
 
 .height-30 {
@@ -57,10 +58,6 @@ ul.no-bullets {
   font-weight: 700;
 }
 
-.margin-20 {
-  margin: 20px;
-}
-
 .inline-block {
   display: inline-block;
 }
@@ -76,4 +73,47 @@ ul.no-bullets {
 
 .margin-top {
   margin-top: 1.4em;
+}
+
+#delete {
+  text-decoration-line: underline;
+  color: #f81011;
+  border: none;
+  background-color: #ececee;
+  font-size: medium;
+}
+
+.modal {
+  text-align: center;
+  height: 10em;
+  width: 20em;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(50, 50, 50, 0.7);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.margin-top-0 {
+  margin-top: 0;
+}
+
+.background-gray {
+  background-color: #ececee;
+}
+
+img {
+  border-radius: 5px;
 }
